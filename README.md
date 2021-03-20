@@ -18,6 +18,11 @@
 #### About page/view
 ![picture](src/img/about.png)
 
+##To run the project:
+### `Clone/fork the project`
+### `npm install`
+### `npm start`
+### `npm run server`
 
 # Getting Started with Create React App
 
