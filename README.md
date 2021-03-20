@@ -1,4 +1,4 @@
-# React app for adding tasks with CRUD operations - also used mock DB json-server to practice connecting react components with back-end
+## React app for adding tasks with CRUD operations - also used mock DB json-server to practice connecting react components with back-end
 
 ### User can:
 * Open/Close the task adding form
