@@ -1,11 +1,14 @@
 
 //With function declaration we don't need to import react, with class we do! 
 // import React from 'react'
+import { useState, useEffect } from 'react'; //Added useEffect hook to have tasks displayed when opening the page
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
-import { useState, useEffect } from 'react'; //Added useEffect hook to have tasks displayed when opening the page
+import About from './components/About';
 
 /* class App extends React.Component {
   render() {
@@ -102,24 +105,33 @@ const App = () => {
   }
 
   return (
-    <div className="container">
+    <Router>
+      <div className="container">
 
-      {/* Header component - contains toggle button to show/hide the form */}
-      <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} /> 
+        {/* Header component - contains toggle button to show/hide the form */}
+        <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} /> 
+        
+        <Route 
+          path='/' 
+          exact 
+          render={(props) => (
+            <>
+              {/* Form for adding the task */}
+              {showAddTask && <AddTask onAdd={addTask} />} {/* Shorter way for terniary operator */}
 
-      {/* Form for adding the task */}
-      {showAddTask && <AddTask onAdd={addTask} />} {/* Shorter way for terniary operator */}
-
-      {/* Tasks components */}
-      {tasks.length > 0 ? 
-      <Tasks 
-        tasks={tasks} 
-        onDelete={deleteTask} 
-        onToggle={toggleReminder} 
-      /> : 
-      <p>No tasks!</p>}
-
-    </div>
+              {/* Tasks components */}
+              {tasks.length > 0 ?
+                <Tasks
+                  tasks={tasks}
+                  onDelete={deleteTask}
+                  onToggle={toggleReminder}
+                /> : (<p>No tasks!</p>)}
+            </>
+        )} />
+        <Route path='/about' component={About} />
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

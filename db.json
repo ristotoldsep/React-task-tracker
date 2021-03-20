@@ -1,16 +1,10 @@
 {
   "tasks": [
     {
-      "id": 2,
-      "text": "okeiokei",
-      "day": "June 3rd at 16: 00",
-      "reminder": false
-    },
-    {
       "id": 3,
       "text": "Testing",
       "day": "June 7th at 22: 30",
-      "reminder": false
+      "reminder": true
     },
     {
       "text": "wfwfw",
